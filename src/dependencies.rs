@@ -51,7 +51,8 @@ pub fn read_deps(includes: Vec<&str>) -> Vec<String> {
                     .unwrap()
                     .as_os_str()
                     .to_str()
-                    .unwrap();
+                    .unwrap()
+                    .to_string();
                 let llc: LocalConfig = toml::from_str(&std::fs::read_to_string(p.clone()).unwrap())
                     .expect("Dependency isnt a cppm project");
                 let local_includes: Vec<String> = llc.project["include"]
